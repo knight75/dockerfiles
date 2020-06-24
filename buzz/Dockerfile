@@ -11,5 +11,3 @@ RUN apt-get update &&  apt-get -q -y install python3 \
 	python3-pip \
 	vim \
 	&& rm -rf /var/cache/apt
-
-COPY *.png $HOME/

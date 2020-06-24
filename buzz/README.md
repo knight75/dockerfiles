@@ -1,3 +1,3 @@
 ############### WOODY
 
-Create a basic python3 pandas docker image
+Create a basic python3 docker image
