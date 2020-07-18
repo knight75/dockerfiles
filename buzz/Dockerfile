@@ -12,6 +12,7 @@ RUN apt-get update &&  apt-get -q -y install python3 \
 	python3-pip \
 	vim \
 	&& rm -rf /var/cache/apt \
+	&& rm -rf /var/lib/apt/lists \
 	&& chmod 650 $HOME/.vimrc \
 	&& chown root:root $HOME/.vimrc
 
