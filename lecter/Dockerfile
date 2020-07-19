@@ -9,4 +9,5 @@ RUN apt-get update \
         && rm -rf /var/cache/apt \
         && rm -rf /var/lib/apt/lists \
 	&& pip3 install virtualenv \
-	tabula-py
+	tabula-py \
+	openpyxl
