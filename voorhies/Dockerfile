@@ -18,4 +18,5 @@ RUN apt-get update && apt-get install -q -y wget \
 	&& rm -rf /var/lib/apt/lists \
 	&& rm -rf /tmp/odoo_others \
 	&& rm -rf /etc/apt/sources.list.d/odoo.list \
-	&& apt-key del '5D13 4C92 4CB0 6330 DCEF  E2A1 DEF2 A219 8183 CBB5'
+	&& apt-key del '5D13 4C92 4CB0 6330 DCEF  E2A1 DEF2 A219 8183 CBB5' \
+	&& apt-get remove --purge -q -y wget
