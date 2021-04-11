@@ -10,7 +10,7 @@ COPY .vimrc /root/.vimrc
 
 RUN apt-get update &&  apt-get -q -y install python3 \
 	python3-pip \
-	vim \
+	python3-venv \
 	&& rm -rf /var/cache/apt \
 	&& rm -rf /var/lib/apt/lists \
 	&& chmod 650 $HOME/.vimrc \
