@@ -2,12 +2,21 @@ FROM buzz
 
 MAINTAINER kurgan231@gmail.com
 
-WORKDIR /opt/app
-COPY requirements.txt /opt/app/requirements.txt
+ARG APPDIR=$DIR
+ARG USR=$USER
+ARG GRP=$GROUP
+WORKDIR $APPDIR
+COPY requirements.txt $APPDIR/requirements.txt
+COPY entrypoint.sh /entrypoint.sh
 
-RUN addgroup --system djgroup && adduser --system djuser && adduser djuser djgroup && python3 -m venv /opt/app/ \
-&& . /opt/app/bin/activate && pip3 install -r requirements.txt \
-&& chown -R djuser /opt/app
+RUN addgroup --system $GRP \
+	&& adduser --system $USR \
+	&& adduser $USR $GRP \
+	&& python3 -m venv $APPDIR \
+	&& . $APPDIR/bin/activate \ 
+	&& pip3 install -r requirements.txt \
+	&& chown -R $USR $APPDIR \
+	&& chmod +x /entrypoint.sh
 
-USER djuser
-
+USER $USR
+ENTRYPOINT ["/entrypoint.sh"]
